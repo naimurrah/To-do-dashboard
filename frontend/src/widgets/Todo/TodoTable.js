@@ -34,9 +34,26 @@ function TodoTable() {
         },
     ];
 
+    const tags = {
+        1:"School",
+        2:"Test",
+        3:"Exam",
+        4:"Homework",
+    };
+
+    function deleteTodo (tid) {
+        console.log("Deleted "+ tid);
+    }
+
+    function submitTodo (tid) {
+        console.log("Submitted "+ tid);
+    }
+    function editTodo (tid) {
+        console.log("Edited "+ tid);
+    }
     return (
         <div>
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Todo</th>
@@ -49,7 +66,7 @@ function TodoTable() {
                 <tbody>
                     {todos.map((todo) => {
                         return (
-                            <TodoItem item={todo}></TodoItem>
+                            <TodoItem key={todo.id} item={todo} editTodo={editTodo} submitTodo={submitTodo} deleteTodo={deleteTodo} tags={tags}></TodoItem>
                         )
                     })}
                 </tbody>

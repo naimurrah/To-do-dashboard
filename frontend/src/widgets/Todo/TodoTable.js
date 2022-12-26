@@ -1,9 +1,8 @@
 import TodoItem from "./TodoItem";
-
+import {useState, useCallback} from "react";
 
 function TodoTable() {
-
-    const todos = [
+    const [todos, setTodos] = useState([
         {
             id:1,
             description:"Calc Homework",
@@ -32,8 +31,10 @@ function TodoTable() {
             hasDue:false,
             date: ""
         },
-    ];
+    ]);
 
+    // remove this once backend is implemented
+    const [currentId, setId] = useState(5)
     const tags = {
         1:"School",
         2:"Test",
@@ -41,9 +42,11 @@ function TodoTable() {
         4:"Homework",
     };
 
-    function deleteTodo (tid) {
-        console.log("Deleted "+ tid);
-    }
+    // functions
+    const deleteTodo = useCallback((tid) => {
+        // have a fetch query too to delete in db
+       setTodos(todos.filter(todo => todo.id !== tid));
+    }, [todos]);
 
     function submitTodo (tid) {
         console.log("Submitted "+ tid);
@@ -51,15 +54,31 @@ function TodoTable() {
     function editTodo (tid) {
         console.log("Edited "+ tid);
     }
+
+    // TODO implement addTodo function
+    const addTodo = () => {
+        setTodos(todos => [...todos, {
+            id:currentId,
+            description:"New Todo",
+            tag:3,
+            hasDue:false,
+            date: ""
+        }]);
+        setId(currentId + 1);
+        console.log("Added new item");
+    };
+    // have a useEffect function to load todos
+
+
     return (
         <div>
             <table className="table">
                 <thead>
-                    <tr>
+                    <tr className="table-dark">
                         <th>Todo</th>
                         <th>Description</th>
                         <th>Due Date</th>
-                        <th></th>
+                        <th> <button type="button" className="btn btn-primary" onClick={() => {addTodo()}}>Add New Todo</button></th>
                         <th></th>
                     </tr>
                 </thead>

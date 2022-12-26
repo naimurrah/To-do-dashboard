@@ -2,34 +2,38 @@ import TodoItem from "./TodoItem";
 import {useState, useCallback} from "react";
 
 function TodoTable() {
-    const [todos, setTodos] = useState([
+    let [todos, setTodos] = useState([
         {
             id:1,
             description:"Calc Homework",
             tag:1,
             hasDue:false,
-            date: ""
+            date: "",
+            isDone: true,
         },
         {
             id:2,
             description:"Spanish Homework",
             tag:3,
             hasDue:true,
-            date: "10/10/2022"
+            date: "10/10/2022",
+            isDone: false,
         },
         {
             id:3,
             description:"Wash Laundry",
             tag:2,
             hasDue:true,
-            date: "10/10/2022"
+            date: "10/10/2022",
+            isDone: false,
         },
         {
             id:4,
             description:"Sleep",
             tag:2,
             hasDue:false,
-            date: ""
+            date: "",
+            isDone: false,
         },
     ]);
 
@@ -48,11 +52,22 @@ function TodoTable() {
        setTodos(todos.filter(todo => todo.id !== tid));
     }, [todos]);
 
-    function submitTodo (tid) {
-        console.log("Submitted "+ tid);
+    const submitTodo = (todo) => {
+        let addTodo = todo;
+        addTodo.isDone = true;
+        console.log(todos);
+        setTodos(todos.filter(item => item.id !== addTodo.id));
+        todos = todos.filter(item => item.id !== addTodo.id);
+        
+        
+        setTodos([...todos, addTodo]);
+        // todos = [...todos, addTodo];
+        console.log(todos);
+        console.log("Submitted");
+
     }
-    function editTodo (tid) {
-        console.log("Edited "+ tid);
+    const editTodo = (todo) => {
+        console.log("Edited ");
     }
 
     // TODO implement addTodo function
@@ -62,9 +77,12 @@ function TodoTable() {
             description:"New Todo",
             tag:3,
             hasDue:false,
-            date: ""
+            date: "",
+            isDone: false,
         }]);
+        console.log("current id: " + currentId);
         setId(currentId + 1);
+        console.log("current id: " + currentId);
         console.log("Added new item");
     };
     // have a useEffect function to load todos

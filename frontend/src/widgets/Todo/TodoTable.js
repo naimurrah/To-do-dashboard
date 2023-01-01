@@ -1,8 +1,9 @@
 import TodoItem from "./TodoItem";
 import {useState, useCallback} from "react";
 
+
 function TodoTable() {
-    let [todos, setTodos] = useState([
+    const [todos, setTodos] = useState([
         {
             id:1,
             description:"Calc Homework",
@@ -53,14 +54,14 @@ function TodoTable() {
     }, [todos]);
 
     const submitTodo = (todo) => {
-        let addTodo = todo;
-        addTodo.isDone = true;
-        console.log(todos);
-        setTodos(todos.filter(item => item.id !== addTodo.id));
-        todos = todos.filter(item => item.id !== addTodo.id);
-        
-        
-        setTodos([...todos, addTodo]);
+        // TODO Will query and change all submitted todos
+        // let addTodo = todo;
+        // addTodo.isDone = !addTodo.isDone;
+        //todo.isDone = !todo.isDone;
+        //console.log(todos);
+        //setTodos(prev => todos.filter(item => item.id !== addTodo.id));
+
+        //setTodos(todos => [...todos, addTodo]);
         // todos = [...todos, addTodo];
         console.log(todos);
         console.log("Submitted");

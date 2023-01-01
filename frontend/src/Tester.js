@@ -1,8 +1,9 @@
+import EditTodoModal from "./widgets/Todo/EditTodoModal";
 import TodoTable from "./widgets/Todo/TodoTable";
 function Tester() {
     return (
         
-        <TodoTable />
+        <EditTodoModal/>
     )
 }
 

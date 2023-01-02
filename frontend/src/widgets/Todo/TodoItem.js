@@ -5,6 +5,10 @@ function TodoItem({ item, tags, deleteTodo, submitTodo, editTodo }) {
     const [done, setDone] = useState(item.isDone);
     // maybe pass tags as prop
     const [description, setDes] = useState(item.description);
+
+    const modalID = "eMod"+item.id;
+
+
     // use callback for delete/add/mark as done
     return (
         <>
@@ -21,8 +25,8 @@ function TodoItem({ item, tags, deleteTodo, submitTodo, editTodo }) {
                     <a href="#index" className="badge rounded-pill text-bg-secondary">{tags[item.tag]}</a>
                 </td>
                 <td>{item.date}</td>
-                <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todoModal" onClick={() => { console.log(description) }}>Edit</button>
-                <EditTodoModal item={item} description={description} setDes={setDes} />
+                <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#" +modalID }onClick={() => { console.log(description) }}>Edit</button>
+                <EditTodoModal modalID={modalID} item={item} description={description} setDes={setDes} />
                 </td>
                 <td><button type="button" className="btn btn-danger" onClick={() => { deleteTodo(item.id) }}>Delete</button></td>
                 

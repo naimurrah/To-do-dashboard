@@ -1,6 +1,5 @@
 import TodoItem from "./TodoItem";
 import {useState, useCallback} from "react";
-import EditTodoModal from "./EditTodoModal";
 
 
 function TodoTable() {
@@ -68,6 +67,7 @@ function TodoTable() {
         console.log("Submitted");
 
     }
+
     const editTodo = (todo) => {
         console.log("Edited ");
     }
@@ -110,7 +110,6 @@ function TodoTable() {
                     })}
                 </tbody>
             </table>
-            <EditTodoModal />
         </div>
     )
 }

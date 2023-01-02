@@ -1,5 +1,6 @@
 import TodoItem from "./TodoItem";
 import {useState, useCallback} from "react";
+import AddTodoModal from "./AddTodoModal";
 
 
 function TodoTable() {
@@ -73,15 +74,8 @@ function TodoTable() {
     }
 
     // TODO implement addTodo function
-    const addTodo = () => {
-        setTodos(todos => [...todos, {
-            id:currentId,
-            description:"New Todo",
-            tag:3,
-            hasDue:false,
-            date: "",
-            isDone: false,
-        }]);
+    const addTodo = (todo) => {
+        setTodos(todos => [...todos, todo]);
         console.log("current id: " + currentId);
         setId(currentId + 1);
         console.log("current id: " + currentId);
@@ -98,10 +92,12 @@ function TodoTable() {
                         <th>Todo</th>
                         <th>Description</th>
                         <th>Due Date</th>
-                        <th> <button type="button" className="btn btn-primary" onClick={() => {addTodo()}}>Add New Todo</button></th>
+                        <th> <button type="button" className="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addTodoModal">Add New Todo</button>
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
+                
                 <tbody>
                     {todos.map((todo) => {
                         return (
@@ -110,6 +106,7 @@ function TodoTable() {
                     })}
                 </tbody>
             </table>
+            <AddTodoModal addTodo={addTodo} idNum={currentId}/>
         </div>
     )
 }

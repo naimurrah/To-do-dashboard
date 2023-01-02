@@ -21,7 +21,7 @@ function TodoItem({ item, tags, deleteTodo, submitTodo, editTodo }) {
                     <a href="#index" className="badge rounded-pill text-bg-secondary">{tags[item.tag]}</a>
                 </td>
                 <td>{item.date}</td>
-                <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todoModal" onClick={() => { editTodo(item) }}>Edit</button>
+                <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todoModal" onClick={() => { console.log(description) }}>Edit</button>
                 <EditTodoModal item={item} description={description} setDes={setDes} />
                 </td>
                 <td><button type="button" className="btn btn-danger" onClick={() => { deleteTodo(item.id) }}>Delete</button></td>

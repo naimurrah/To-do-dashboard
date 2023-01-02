@@ -1,5 +1,6 @@
 import TodoItem from "./TodoItem";
 import {useState, useCallback} from "react";
+import EditTodoModal from "./EditTodoModal";
 
 
 function TodoTable() {
@@ -109,6 +110,7 @@ function TodoTable() {
                     })}
                 </tbody>
             </table>
+            <EditTodoModal />
         </div>
     )
 }

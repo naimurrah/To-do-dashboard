@@ -105,7 +105,7 @@ function TodoTable() {
                 <tbody>
                     {todos.map((todo) => {
                         return (
-                            <TodoItem key={todo.id} item={todo} editTodo={editTodo} submitTodo={submitTodo} deleteTodo={deleteTodo} tags={tags}></TodoItem>
+                            <TodoItem key={todo.id} item={todo} editTodo={editTodo} submitTodo={submitTodo} deleteTodo={deleteTodo} tags={tags} tagIds={tagIds}></TodoItem>
                         )
                     })}
                 </tbody>

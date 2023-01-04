@@ -41,12 +41,16 @@ function TodoTable() {
 
     // remove this once backend is implemented
     const [currentId, setId] = useState(5)
+
+    // get these from db
     const tags = {
         1:"School",
         2:"Test",
         3:"Exam",
         4:"Homework",
     };
+
+    const tagIds = [1, 2, 3, 4];
 
     // functions
     const deleteTodo = useCallback((tid) => {
@@ -106,7 +110,7 @@ function TodoTable() {
                     })}
                 </tbody>
             </table>
-            <AddTodoModal addTodo={addTodo} idNum={currentId}/>
+            <AddTodoModal addTodo={addTodo} idNum={currentId} tags={tags} tagIds={tagIds}/>
         </div>
     )
 }

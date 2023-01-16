@@ -18,7 +18,7 @@ function TodoTable() {
             description:"Spanish Homework",
             tag:3,
             hasDue:true,
-            date: "10/10/2022",
+            date: "2022-10-10",
             isDone: false,
         },
         {
@@ -26,7 +26,7 @@ function TodoTable() {
             description:"Wash Laundry",
             tag:2,
             hasDue:true,
-            date: "10/10/2022",
+            date: "2022-10-10",
             isDone: false,
         },
         {

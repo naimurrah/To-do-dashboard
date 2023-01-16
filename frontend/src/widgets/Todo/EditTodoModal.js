@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, setTag }) {
   const [oDesc, setODesc] = useState(description);
   const [newTag, setNewTag] = useState(item.tag);
+  const [newDueDate, setNewDueDate] = useState(item.date)
   return (
     <div className="modal fade" id={modalID} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
@@ -39,12 +40,14 @@ function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, 
                 )
               })}
             </select>
+            <input className='form-control' id="date" type="date" value={newDueDate} onChange={(e) => {setNewDueDate(e.target.value)}}/>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"
               onClick={() => {
                 setODesc(description);
                 setNewTag(item.tag);
+                setNewDueDate(item.date);
               }}
             >Close</button>
             <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
@@ -52,9 +55,11 @@ function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, 
                 () => {
                   item.description = oDesc;
                   item.tag = newTag;
+                  item.date = newDueDate
                   setDes(oDesc);
                   setNewTag(item.tag);
                   setTag(tags[item.tag]);
+                  setNewDueDate(item.date);
                 }}
             >
               Save changes

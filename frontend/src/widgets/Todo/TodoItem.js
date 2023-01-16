@@ -1,6 +1,6 @@
 import { useState } from "react";
 import EditTodoModal from "./EditTodoModal";
-function TodoItem({ item, tags, tagIds, deleteTodo, submitTodo, editTodo }) {
+function TodoItem({ item, tags, tagIds, deleteTodo, submitTodo}) {
     // implement state functions later on
     const [done, setDone] = useState(item.isDone);
     // maybe pass tags as prop

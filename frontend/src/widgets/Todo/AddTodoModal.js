@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export default function AddTodoModal({ addTodo, idNum, tags, tagIds }) {
     const [newDesc, setNewDesc] = useState("");
     const [newTag, setNewTag] = useState(0);
+    const [newDueDate, setNewDueDate] = useState("");
     let newTD = {
         id: idNum,
         description: "New Todo",
@@ -41,6 +42,7 @@ export default function AddTodoModal({ addTodo, idNum, tags, tagIds }) {
                                 )
                             })}
                         </select>
+                        <input className='form-control' id="date" type="date" value={newDueDate} onChange={(e) => {setNewDueDate(e.target.value)}}/>
                     </div>
                     <div className="modal-footer">
                         <button
@@ -50,15 +52,18 @@ export default function AddTodoModal({ addTodo, idNum, tags, tagIds }) {
                             onClick={() => {
                                 setNewDesc("");
                                 setNewTag(0);
+                                setNewDueDate("");
                             }}
                         >Close</button>
                         <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
                             onClick={() => {
                                 newTD.description = newDesc;
                                 newTD.tag = newTag;
+                                newTD.date = newDueDate;
                                 addTodo(newTD);
                                 setNewDesc("");
                                 setNewTag(0);
+                                setNewDueDate("");
                             }}
                         >Save changes</button>
                     </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, setTag }) {
+function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, setTag, setDueDate }) {
   const [oDesc, setODesc] = useState(description);
   const [newTag, setNewTag] = useState(item.tag);
-  const [newDueDate, setNewDueDate] = useState(item.date)
+  const [newDueDate, setNewDueDate] = useState(item.date);
   return (
     <div className="modal fade" id={modalID} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
@@ -48,6 +48,7 @@ function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, 
                 setODesc(description);
                 setNewTag(item.tag);
                 setNewDueDate(item.date);
+                setDueDate(item.date);
               }}
             >Close</button>
             <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
@@ -55,11 +56,11 @@ function EditTodoModal({ modalID, item, description, setDes, tags, tagIds, tag, 
                 () => {
                   item.description = oDesc;
                   item.tag = newTag;
-                  item.date = newDueDate
+                  item.date = newDueDate;
                   setDes(oDesc);
                   setNewTag(item.tag);
                   setTag(tags[item.tag]);
-                  setNewDueDate(item.date);
+                  setDueDate(item.date);
                 }}
             >
               Save changes

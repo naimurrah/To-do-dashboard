@@ -6,6 +6,7 @@ function TodoItem({ item, tags, tagIds, deleteTodo, submitTodo, editTodo }) {
     // maybe pass tags as prop
     const [description, setDes] = useState(item.description);
     const [tag, setTag] = useState(tags[item.tag]);
+    const [dueDate, setDueDate] = useState(item.date);
     const modalID = "eMod"+item.id;
 
 
@@ -24,9 +25,9 @@ function TodoItem({ item, tags, tagIds, deleteTodo, submitTodo, editTodo }) {
                     <p>{description}</p>
                     <div className="badge rounded-1 text-bg-info">{tag}</div>
                 </td>
-                <td>{item.date}</td>
+                <td>{dueDate}</td>
                 <td><button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#" +modalID }onClick={() => { console.log("IMPLEMENT EDIT BUTTON") }}>Edit</button>
-                <EditTodoModal modalID={modalID} item={item} description={description} setDes={setDes} tags={tags} tagIds={tagIds} tag={tag} setTag={setTag} />
+                <EditTodoModal modalID={modalID} item={item} description={description} setDes={setDes} tags={tags} tagIds={tagIds} tag={tag} setTag={setTag} setDueDate={setDueDate} />
                 </td>
                 <td><button type="button" className="btn btn-danger" onClick={() => { deleteTodo(item.id) }}>Delete</button></td>
                 

@@ -20,3 +20,6 @@ app.get("/", (req, res) => {
     res.json({test:"klflkaf"});
     console.log({hi:"test"});
 });
+
+todoRouter = require("./routes/Todos-Router");
+app.use("/todos", todoRouter);

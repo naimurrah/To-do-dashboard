@@ -28,4 +28,4 @@ NOTE: backend server may not work if you do not have access to the MongoDB API K
 - Express.js
 - MongoDB
 - Mongoose.js
-- A weather API
+- Open Meteo Weather Api

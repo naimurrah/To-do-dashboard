@@ -24,4 +24,7 @@ app.get("/", (req, res) => {
 });
 
 todoRouter = require("./routes/Todos-Router");
+weatherRouter = require("./routes/Weather-Router");
+
 app.use("/todos", todoRouter);
+app.use("/weather", weatherRouter);

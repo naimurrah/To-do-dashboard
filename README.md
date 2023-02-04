@@ -8,13 +8,14 @@ To run locally
 - open directory in ide
 - make sure to have node.js installed
 - Run these terminal commands in shell
-    - cd server
-    - npm install
-    - npm start
+    cd server
+    npm install
+    npm start
 - create another terminal
-    - cd frontend
-    - npm install
-    - npm run start
+    cd frontend
+    npm install
+    npm run start
+
 NOTE: backend server may not work if you do not have access to the MongoDB API Key
 
 ### Frameworks and Libraries Used

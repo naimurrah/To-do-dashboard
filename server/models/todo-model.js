@@ -6,7 +6,7 @@ const todoSchema = new Schema({
     description:{ type:String, required: true},
     date: {type:Date},
     isDone:{type:Boolean, required: true},
-    tag: {type: Number, required:true},
+    tag: {type: String, required:true},
     hasDue:{type: Boolean, required:true}
 });
 

@@ -7,6 +7,8 @@ require('dotenv').config()
 const app = express();
 const PORT_NUM = 8080;
 
+app.use(express.json());
+
 mongoose.set('strictQuery', true);
 app.use(cors());
 

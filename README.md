@@ -8,9 +8,13 @@ To run locally
 - open directory in ide
 - make sure to have node.js installed
 - Run these terminal commands in shell
+    
     cd server
+    
     npm install
+    
     npm start
+
 - create another terminal
     cd frontend
     npm install
